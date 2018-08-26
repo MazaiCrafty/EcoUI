@@ -15,9 +15,10 @@ class InfoForm extends Form{
             }
         });
 
-        $form->setTitle("Info");
-        $form->setContent("あなたの所持金: ". $this->getEconomyAPI()->myMoney($sender));
-        $form->addButton("戻る");
+        $form->setTitle($this->getMessage("info.title"));
+        $message = str_replace("%MONEY%", $this->getEconomyAPI()->myMoney($sender), $this->getMessage("info.content"));
+        $form->setContent($message);
+        $form->addButton($this->getMessage("info.back.button"));
         return $form;
     }
 }

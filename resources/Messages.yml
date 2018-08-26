@@ -1,0 +1,33 @@
+#MenuForm
+menu.title: "Menu"
+menu.content: "Please select button"
+menu.info.button: "Info"
+menu.pay.button: "Pay"
+menu.reduce.button: "Reduce"
+menu.set.button: "Set"
+
+#InfoForm
+info.title: "Info"
+info.content: "Your money: %MONEY%"
+info.back.button: "Back"
+
+#PayForm
+pay.title: "Pay"
+pay.dropdown.prefix: "- Players -"
+pay.dropdown: "select player"
+pay.slider: "To set up amount"
+pay.notselected.player: "Please select player"
+pay.notsetup.amount: "Please set up money"
+pay.myself: "You can not pay to you"
+pay.success.sender: "You paid %TARGET% money"
+pay.success.target: "You were paid from %SENDER%"
+
+#ReduceForm
+pay.title: "Reduce"
+pay.dropdown.prefix: "- Players -"
+pay.dropdown: "select player"
+pay.slider: "To set up amount"
+pay.notselected.player: "Please select player"
+pay.notsetup.amount: "Please set up money"
+pay.success.sender: "You paid %TARGET% money"
+pay.success.target: "You were paid from %SENDER%"

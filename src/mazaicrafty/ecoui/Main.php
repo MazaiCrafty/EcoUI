@@ -18,15 +18,12 @@ use onebone\economyapi\EconomyAPI;
 
 class Main extends PluginBase{
 
-    // TODO: リファクタリングできるところがあればやっておきたい
-    // TODO: ReduceFormクラスのcreateForm関数を呼び出す (MenuFormクラスにて)
-    // TODO: SetFormクラスのcreateForm関数を呼び出す (MenuFormクラスにて)
-    // TODO: すること終わったら絶対コメント消すんやで
-
     /** @var FormAPI */
     private $form_api;
+
     /** @var EconomyAPI */
     private $economy_api;
+
     /** @var self */
     private static $instance;
 

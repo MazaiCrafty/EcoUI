@@ -3,6 +3,7 @@
 namespace mazaicrafty\ecoui\form;
 
 use pocketmine\Server;
+use pocketmine\utils\Config;
 
 use mazaicrafty\ecoui\Main;
 
@@ -21,6 +22,15 @@ class Form{
     /** @var InfoForm */
     private static $info_form;
 
+    /** @var ReduceForm */
+    private static $reduce_form;
+
+    /** @var SetForm */
+    private static $set_form;
+
+    /** @var Config */
+    private static $messages;
+
     /** @var self */
     private static $instance;
 
@@ -28,7 +38,15 @@ class Form{
         self::$menu_form = new MenuForm();
         self::$pay_form = new PayForm();
         self::$info_form = new InfoForm();
+        self::$reduce_form = new ReduceForm();
+        self::$set_form = new SetForm();
         self::$instance = new Form();
+
+        if (!file_exists(Main::getInstance()->getDataFolder())){
+            @mkdir(Main::getInstance()->getDataFolder());
+        }
+        Main::getInstance()->saveResource("Messages.yml");
+        self::$messages = new Config(Main::getInstance()->getDataFolder() . "Messages.yml", Config::YAML);
     }
 
     protected function getFormAPI(): FormAPI{
@@ -37,6 +55,10 @@ class Form{
 
     protected function getEconomyAPI(): EconomyAPI{
         return $this->getPlugin()->getEconomyAPI();
+    }
+
+    protected function getMessage(string $message): string{
+        return self::$messages->get($message);
     }
 
     public function getMenuForm(): MenuForm{
@@ -51,8 +73,16 @@ class Form{
         return self::$info_form;
     }
 
+    public function getReduceForm(): ReduceForm{
+        return self::$reduce_form;
+    }
+
+    public function getSetForm(): SetForm{
+        return self::$set_form;
+    }
+
     protected function is_null($response): bool{
-        return $response === null ? true : false;
+        return ($response === null) ? true : false;
     }
 
     protected function getPlugin(): Main{
