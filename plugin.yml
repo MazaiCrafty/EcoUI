@@ -1,0 +1,15 @@
+name: EcoUI
+main: mazaicrafty\ecoui\Main
+version: 1.0
+api:
+ - 4.0.0
+depend:
+ - FormAPI
+ - EconomyAPI
+load: POSTWORLD
+author: MazaiCrafty
+website: https://github.com/MazaiCrafty/EcoUI
+commands:
+ ecoui:
+  usage: "/ecoui"
+  description: "Open Form"
