@@ -23,14 +23,17 @@ class PayForm extends Form{
                 $amount = $result[1];
                 if ($this->is_null($target_name) || $result[0] === 0){
                     $player->sendMessage($this->getMessage("pay.notselected.player"));
+                    unset($this->list);
                     return;
                 }
                 if ($this->is_null($amount)){
                     $player->sendMessage($this->getMessage("pay.notsetup.amount"));
+                    unset($this->list);
                     return;
                 }
                 if ($target->getName() === $player->getName()){
                     $player->sendMessage($this->getMessage("pay.myself"));
+                    unset($this->list);
                     return;
                 }
                 $this->getEconomyAPI()->reduceMoney($player, $amount);

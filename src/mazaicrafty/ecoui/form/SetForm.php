@@ -22,10 +22,12 @@ class SetForm extends Form{
                 $amount = $result[1];
                 if ($this->is_null($target_name) || $result[0] === 0){
                     $player->sendMessage($this->getMessage("set.notselected.player"));
+                    unset($this->list);
                     return;
                 }
                 if ($this->is_null($amount)){
                     $player->sendMessage($this->getMessage("set.notsetup.amount"));
+                    unset($this->list);
                     return;
                 }
                 $this->getEconomyAPI()->setMoney($target, $amount);

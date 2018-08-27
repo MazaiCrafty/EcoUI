@@ -22,10 +22,12 @@ class ReduceForm extends Form{
                 $amount = $result[1];
                 if ($this->is_null($target_name) || $result[0] === 0){
                     $player->sendMessage($this->getMessage("reduce.notselected.player"));
+                    unset($this->list);
                     return;
                 }
                 if ($this->is_null($amount)){
                     $player->sendMessage($this->getMessage("reduce.notsetup.amount"));
+                    unset($this->list);
                     return;
                 }
                 $this->getEconomyAPI()->reduceMoney($target, $amount);
