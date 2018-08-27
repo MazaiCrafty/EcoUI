@@ -49,50 +49,88 @@ class Form{
         self::$messages = new Config(Main::getInstance()->getDataFolder() . "Messages.yml", Config::YAML);
     }
 
+    /**
+     * @return FormAPI
+     */
     protected function getFormAPI(): FormAPI{
         return $this->getPlugin()->getFormAPI();
     }
 
+    /**
+     * @return EconomyAPI
+     */
     protected function getEconomyAPI(): EconomyAPI{
         return $this->getPlugin()->getEconomyAPI();
     }
 
+    /**
+     * @param   string  $message
+     * @return  string
+     */
     protected function getMessage(string $message): string{
         return self::$messages->get($message);
     }
 
+    /**
+     * @return  MenuForm
+     */
     public function getMenuForm(): MenuForm{
         return self::$menu_form;
     }
 
+    /**
+     * @return  PayForm
+     */
     public function getPayForm(): PayForm{
         return self::$pay_form;
     }
 
+    /**
+     * @return  InfoForm
+     */
     public function getInfoForm(): InfoForm{
         return self::$info_form;
     }
 
+    /**
+     * @return  ReduceForm
+     */
     public function getReduceForm(): ReduceForm{
         return self::$reduce_form;
     }
 
+    /**
+     * @return  SetForm
+     */
     public function getSetForm(): SetForm{
         return self::$set_form;
     }
 
+    /**
+     * @param   $response
+     * @return  bool
+     */
     protected function is_null($response): bool{
         return ($response === null) ? true : false;
     }
 
+    /**
+     * @return  Main
+     */
     protected function getPlugin(): Main{
         return Main::getInstance();
     }
 
+    /**
+     * @return  Server
+     */
     protected function getServer(): Server{
         return Server::getInstance();
     }
 
+    /**
+     * @return  Form
+     */
     public static function getInstance(): self{
         return self::$instance;
     }

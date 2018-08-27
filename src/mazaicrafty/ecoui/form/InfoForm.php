@@ -8,6 +8,10 @@ use jojoe77777\FormAPI\SimpleForm;
 
 class InfoForm extends Form{
 
+    /**
+     * @param   Player  $player
+     * @return  SimpleForm
+     */
     public function createForm(Player $sender): SimpleForm{
         $form = $this->getFormAPI()->createSimpleForm(function(Player $player, int $result = null){
             if (!$this->is_null($result)){

@@ -9,8 +9,11 @@ use jojoe77777\FormAPI\CustomForm;
 class ReduceForm extends Form{
 
     /** @var array */
-    private $list = array();
+    private $list = [];
 
+    /**
+     * @return  CustomForm
+     */
     public function createForm(): CustomForm{
         $form = $this->getFormAPI()->createCustomForm(function(Player $player, array $result = null){
             if (!$this->is_null($result)){

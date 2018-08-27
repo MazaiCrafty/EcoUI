@@ -9,8 +9,12 @@ use jojoe77777\FormAPI\CustomForm;
 class PayForm extends Form{
 
     /** @var array */
-    private $list = array();
+    private $list = [];
 
+    /**
+     * @param   Player  $player
+     * @return  CustomForm
+     */
     public function createForm(Player $sender): CustomForm{
         $form = $this->getFormAPI()->createCustomForm(function(Player $player, array $result = null){
             if (!$this->is_null($result)){
